@@ -265,7 +265,6 @@ internal class RouterNavigationBar : ComposeView<RouterNavigationBarAttr, Compos
                         }
                     }
                 }
-
             }
         }
     }
