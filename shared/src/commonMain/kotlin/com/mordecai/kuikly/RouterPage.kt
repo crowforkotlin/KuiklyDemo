@@ -1,5 +1,9 @@
 package com.mordecai.kuikly
 
+import com.mordecai.kuikly.RouterPage.Companion.JUMP_TEXT
+import com.mordecai.kuikly.RouterPage.Companion.LOGO
+import com.mordecai.kuikly.RouterPage.Companion.TIP
+import com.mordecai.kuikly.RouterPage.Companion.TITLE
 import com.tencent.kuikly.core.annotations.Page
 import com.tencent.kuikly.core.base.*
 import com.tencent.kuikly.core.directives.vif
@@ -12,6 +16,7 @@ import com.tencent.kuikly.core.views.compose.Button
 import com.tencent.kuikly.core.reactive.handler.*
 import com.mordecai.kuikly.base.BasePager
 import com.mordecai.kuikly.base.bridgeModule
+import com.tencent.kuikly.core.base.event.EventName
 
 @Page("router", supportInLocal = true)
 internal class RouterPage : BasePager() {
@@ -203,6 +208,49 @@ internal class RouterPage : BasePager() {
         private const val AAR_MODE_TIP = "如：router 或者 router&key=value （&后面为页面参数）"
     }
 
+}
+
+@Page("123", supportInLocal = true)
+internal class HelloWolrd: BasePager() {
+    override fun body(): ViewBuilder {
+        val ctx = this
+        return {
+            // 背景图
+            RouterNavBar {
+                attr {
+                    backDisable = false
+                }
+            }
+
+            View {
+                attr {
+                    allCenter()
+                    margin(20f)
+                }
+                View {
+                    attr {
+                        backgroundColor(Color.WHITE)
+                        borderRadius(10f)
+                        padding(10f)
+                    }
+                    Image {
+                        attr {
+                            src(LOGO)
+                            size(
+                                pagerData.pageViewWidth * 0.4f,
+                                (pagerData.pageViewWidth * 0.4f) * (1678f / 2284f)
+                            )
+                        }
+                    }
+                }
+
+            }
+            attr {
+                backgroundColor(Color(Color.parseString16ToLong(Color.RED.toString()), alpha01 = 0.5f))
+            }
+
+        }
+    }
 }
 
 internal class RouterNavigationBar : ComposeView<RouterNavigationBarAttr, ComposeEvent>() {
