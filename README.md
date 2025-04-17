@@ -5,3 +5,4 @@
 - maven central https://mvnrepository.com/artifact/com.tencent.kuikly-open
 - kotlin version : 2.0.21
 - kuikly version : 2.0.0
+- 测试环境包体积 3.67MB 无任何原生库、服务、活动
